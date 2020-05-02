@@ -20,7 +20,7 @@ public abstract class PhotoWeatherRoomDatabase extends RoomDatabase {
             synchronized (PhotoWeatherRoomDatabase.class) {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            PhotoWeatherRoomDatabase.class, "eav_database")
+                            PhotoWeatherRoomDatabase.class, "pw_database")
                             .fallbackToDestructiveMigration()
                             .build();
                 }
