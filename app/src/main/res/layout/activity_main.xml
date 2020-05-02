@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+        <variable
+            name="weatherInfo"
+            type="com.robusta.photoweather.entities.WeatherApiObject" />
+    </data>
+
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.MainActivity">
+
+        <ImageView
+            android:id="@+id/capturedImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/gradient">
+
+            <TextView
+                android:id="@+id/name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:text="@{weatherInfo.name}"/>
+
+            <TextView
+                android:id="@+id/weather"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/name"
+                android:layout_marginTop="16dp"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:text="@{weatherInfo.weather.get(0).main}"/>
+
+            <TextView
+                android:id="@+id/temperature"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toEndOf="@id/name"
+                android:layout_marginTop="32dp"
+                android:layout_marginStart="24dp"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:text="@{String.valueOf(weatherInfo.main.temp - 273)}"/>
+
+            <TextView
+                android:id="@+id/humidity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/temperature"
+                android:layout_toEndOf="@id/name"
+                android:textSize="18sp"
+                android:textColor="#fff"
+                android:layout_marginTop="16dp"
+                android:layout_marginStart="24dp"
+                android:text="@{String.valueOf(weatherInfo.main.humidity)}"/>
+
+        </RelativeLayout>
+
+
+        <ImageButton
+            android:id="@+id/imgCapture"
+            android:layout_width="72dp"
+            android:layout_height="72dp"
+            android:layout_margin="24dp"
+            android:background="?android:attr/selectableItemBackground"
+            android:onClick="save"
+            app:srcCompat="@drawable/ic_check"
+            android:layout_gravity="center|bottom"/>
+
+
+        <com.facebook.share.widget.ShareButton
+            android:id="@+id/shareFb"
+            android:layout_width="wrap_content"
+            android:layout_height="72dp"
+            android:layout_margin="8dp"
+            android:background="#2035AC"
+            android:layout_gravity="end|bottom"/>
+
+    </FrameLayout>
+
+</layout>

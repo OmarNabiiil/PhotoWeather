@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">PhotoWeather</string>
+    <string name="action_history">History</string>
+    <string name="facebook_app_id">166411714736256</string>
+</resources>
